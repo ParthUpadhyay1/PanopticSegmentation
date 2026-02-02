@@ -1,0 +1,10 @@
+# Inference config: run on LaRS test split and export challenge-format PNGs
+paths:
+  include: configs/local_paths.yaml
+
+infer:
+  weights: artifacts/panoptic_fpn_r50/model_final.pth
+  d2_base_config: COCO-PanopticSegmentation/panoptic_fpn_R_50_3x.yaml
+  out_dir: artifacts/preds_test
+  score_thresh: 0.5
+  device: cuda

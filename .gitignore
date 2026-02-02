@@ -1,0 +1,71 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+
+# ---- Virtualenv ----
+.venv/
+.venv*/
+venv/
+ENV/
+env/
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Data / datasets ----
+data/
+datasets/
+Dataset*/
+Datasets*/
+**/LaRS*/
+**/lars*/
+**/lars_annotations*/
+**/panoptic_masks*/
+**/images/train*/
+**/images/val*/
+**/images/test*/
+**/*.zip
+**/*.tar
+**/*.tar.gz
+**/*.7z
+
+# ---- Outputs / training artifacts ----
+artifacts/
+outputs/
+runs/
+wandb/
+logs/
+*.log
+*.pth
+*.pkl
+*.pt
+*.ckpt
+*.onnx
+
+# ---- Detectron2 cache ----
+**/d2_cache/
+**/.torch/
+
+# ---- Local configs (often contain absolute paths) ----
+configs/local_paths.yaml
+configs/*local*.yaml
+configs/*private*.yaml
+
+# ---- Secrets ----
+.env
+*.key
+*.pem
+*.p12
+*secret*
+*token*

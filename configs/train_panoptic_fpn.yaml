@@ -1,0 +1,44 @@
+# Training config for LaRS panoptic segmentation (Detectron2 PanopticFPN baseline)
+# You can override anything from CLI, e.g.:
+# python -m src.train --config configs/train_panoptic_fpn.yaml train.max_iter=12000 train.base_lr=0.00025
+
+paths:
+  include: local_paths.yaml
+
+train:
+  output_dir: artifacts/panoptic_fpn_r50
+  ims_per_batch: 1
+  min_size_train: (256, 288, 320)
+  max_size_train: 512
+  min_size_test: 320
+  max_size_test: 512
+
+
+  # Detectron2 model zoo base config (PanopticFPN, R50-FPN, 3x schedule)
+  d2_base_config: COCO-PanopticSegmentation/panoptic_fpn_R_50_3x.yaml
+
+  # Training settings
+  num_gpus: 1
+  num_workers: 4
+  ims_per_batch: 4
+  base_lr: 0.00025
+  max_iter: 15000
+  warmup_iters: 500
+  eval_period: 1000
+  checkpoint_period: 1000
+
+  # Image resizing
+  min_size_train: [640, 672, 704, 736, 768, 800]
+  max_size_train: 1333
+  min_size_test: 800
+  max_size_test: 1333
+
+  resume: true
+  
+DATASETS:
+  TRAIN: ("lars_train_panoptic_separated",)
+  TEST:  ("lars_val_panoptic_separated",)
+
+INPUT:
+  MASK_FORMAT: "bitmask"
+
