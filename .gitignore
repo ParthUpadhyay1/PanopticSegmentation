@@ -24,6 +24,7 @@ Thumbs.db
 .idea/
 
 # ---- Data / datasets ----
+docs/
 data/
 datasets/
 Dataset*/
